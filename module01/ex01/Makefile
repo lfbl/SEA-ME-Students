@@ -1,12 +1,12 @@
-NAME = phonebook
+NAME = car
 
 CC = c++
 
 CFLAGS = -Wall -Werror -Wall
 
-INCLUDE = Contact.hpp PhoneBook.hpp 
+INCLUDE = Car.hpp
 
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = Car.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

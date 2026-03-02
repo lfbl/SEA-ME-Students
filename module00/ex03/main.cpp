@@ -32,6 +32,14 @@ int main()
 		}
 		if (input == "ADD")
     		phonebook.add_contact();
+		else if (input == "REMOVE")
+		{
+			std::cout << "Enter Number " << std::endl;
+			std::getline(std::cin, input);
+			index = std::atoi(input.c_str());
+			phonebook.remove_contact(index);
+			std::cout << "contact removed" << std::endl;
+		}
 		else if (input == "SEARCH")
 		{
 			phonebook.print_contacts();

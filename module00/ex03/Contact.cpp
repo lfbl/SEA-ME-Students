@@ -15,7 +15,7 @@ bool Contact::add_contact()
 	
 	std::string input;
 	
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		std::cout << prompts[i] << std::endl;
 		if( !std::getline(std::cin, input))
@@ -78,6 +78,7 @@ void Contact::print_contacts(int index) const
 			  << std::setw(10) << formatString(nickname) << "|"
 			  << std::endl;
 }
+
 std::string Contact::get_name() const
 { 
 	return name;

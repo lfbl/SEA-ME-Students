@@ -22,6 +22,7 @@ public:
 	void print_contacts();
 	int get_nb_contacts() const ;
 	void get_amount();
+    void remove_contact(int i);
     void print_bookmarked();
 	~PhoneBook();
 

@@ -77,3 +77,12 @@ void PhoneBook::print_contacts()
 			return ;
 	}
 }
+
+void PhoneBook::remove_contact(int i)
+{
+    if (i < 8 && this->contacts[i])
+    {
+       delete (this->contacts[i]);
+       this->contacts[i] = NULL;
+    }
+}
