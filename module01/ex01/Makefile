@@ -4,9 +4,7 @@ CC = c++
 
 CFLAGS = -Wall -Werror -Wall
 
-INCLUDE = Car.hpp
-
-SRCS = Car.cpp
+SRCS = Car.cpp SportsCar.cpp main.cpp Vehicle.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

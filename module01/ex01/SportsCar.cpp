@@ -1,37 +1,42 @@
 #include "SportsCar.hpp"
 
-SportsCar::SportsCar() : _topSpeed("100")
+SportsCar::SportsCar() : _topSpeed(100)
 {
+	std::cout << "SportsCar constructor called" << std::endl;
     return;
 }
 
 SportsCar::SportsCar(const SportsCar& copy)
 {
+	std::cout << "SportsCar copy constructor called" << std::endl;
     *this = copy;
     return;
 }
 
 SportsCar& SportsCar::operator=(const SportsCar& other)
 {
+	std::cout << "SportsCar assignment operator called" << std::endl;
     if (this != &other)
     {
-        this->_topSpeed = other.getTopSpeed();
+        this->_topSpeed = other._topSpeed;
     }
     return (*this);
 }
 
-int getTopSpeed()
-{
-    return(this->_topSpeed);
-}
-
 void SportsCar::Drive()
 {
-    Car::drive();
-    std::cout << this->getTopSpeed() << std::end;
+    Car::Drive();
+    std::cout << "with a "<< this->getTopSpeed() << "kmh" << std::endl;
 }
 
 SportsCar::~SportsCar()
 {
+    std::cout << "SportsCar destructor called" << std::endl;
     return;
+}
+
+
+int SportsCar::getTopSpeed()
+{
+	return (this->_topSpeed);
 }

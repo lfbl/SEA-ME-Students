@@ -1,6 +1,8 @@
-#ifndef
-# define SportsCar_HPP
-# include "Car.hpp"
+#ifndef SportsCar_HPP
+#define SportsCar_HPP
+
+#include <iostream>
+#include "Car.hpp"
 
 class SportsCar : public Car
 {
@@ -11,8 +13,9 @@ class SportsCar : public Car
         SportsCar(const SportsCar& copy);
         SportsCar& operator=(const SportsCar& other);
         ~SportsCar();
-        void drive() const;
+        void Drive();
+		int getTopSpeed();
 
-}
+};
 
 #endif

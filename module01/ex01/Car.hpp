@@ -1,21 +1,24 @@
-#ifndef 
+#ifndef CAR_HPP
 # define CAR_HPP
 
-class Car
+#include <string>
+#include <iostream>
+#include "Vehicle.hpp"
+
+class Car: public Vehicle
 {
     private:
         std::string _make;
         std::string _model;
-        int _year;
+        // int _year;
     public:
         Car();
         Car(const Car& copy);
         Car& operator=(const Car& other);
         ~Car();
-        virtual void drive() const;
+    	void Drive() override;
         std::string getMake();
-        std::string getModel();
-        std::string getYear();        
-}
+        std::string getModel();       
+};
 
 #endif
