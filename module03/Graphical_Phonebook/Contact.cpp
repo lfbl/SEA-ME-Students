@@ -1,57 +1,49 @@
 #include "Contact.hpp"
 
-Contact::Contact() 
-    : name(""), nickname(""), phoneNumber(""), email("")
+AddContact::AddContact(QWidget *parent) : QDialog(parent)
 {
+    setWindowTitle("Add Contact");
+    setModal(true);
+    resize(250, 300);
+    nameEdit = new QLineEdit(this);
+    nameEdit->setPlaceholderText("Name");
+    nameEdit->move(10, 10);
+    phoneEdit = new QLineEdit(this);
+    phoneEdit->setPlaceholderText("Phonenumber");
+    phoneEdit->move(10, 50);
+    mailEdit = new QLineEdit(this);
+    mailEdit->setPlaceholderText("Email");
+    mailEdit->move(10, 90);
+    okButton = new QPushButton("OK", this);
+    okButton->move(10, 250);
+    cancelButton = new QPushButton("Cancel", this);
+    cancelButton->move(100, 250);
+    connect(okButton, &QPushButton::clicked, this, &QDialog::accept);
+    connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
+
+    auto layout = new QVBoxLayout();
+    layout->addWidget(nameEdit);
+    layout->addWidget(phoneEdit);
+    layout->addWidget(mailEdit);
+
+    auto buttonlayout = new QVBoxLayout();
+    buttonlayout->addWidget(okButton);
+    buttonlayout->addWidget(cancelButton);
+
+    layout->addLayout(buttonlayout);
 }
 
-Contact::Contact(const QString& name, const QString& nickname, 
-                 const QString& phoneNumber, const QString& email)
-    : name(name), nickname(nickname), phoneNumber(phoneNumber), email(email)
+QString AddContact::getName() const 
 {
+    return nameEdit->text();
 }
 
-QString Contact::getName() const
+QString AddContact::getPhone() const 
 {
-    return name;
+    return phoneEdit->text();
 }
 
-QString Contact::getNickname() const
+QString AddContact::getEmail() const 
 {
-    return nickname;
-}
-
-QString Contact::getPhoneNumber() const
-{
-    return phoneNumber;
-}
-
-QString Contact::getEmail() const
-{
-    return email;
-}
-
-void Contact::setName(const QString& name)
-{
-    this->name = name;
-}
-
-void Contact::setNickname(const QString& nickname)
-{
-    this->nickname = nickname;
-}
-
-void Contact::setPhoneNumber(const QString& phoneNumber)
-{
-    this->phoneNumber = phoneNumber;
-}
-
-void Contact::setEmail(const QString& email)
-{
-    this->email = email;
-}
-
-bool Contact::isValid() const
-{
-    return !name.isEmpty() && !phoneNumber.isEmpty();
+    return mailEdit->text();
 }

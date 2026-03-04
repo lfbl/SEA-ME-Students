@@ -1,35 +1,29 @@
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#ifndef ADDCONTACT_HPP
+#define ADDCONTACT_HPP
 
-#include <QString>
+#include <QDialog>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 
-class Contact
+class AddContact : public QDialog
 {
-private:
-    QString name;
-    QString nickname;
-    QString phoneNumber;
-    QString email;
+    Q_OBJECT
 
 public:
-    Contact();
-    Contact(const QString& name, const QString& nickname, 
-            const QString& phoneNumber, const QString& email);
-    
-    // Getters
+    AddContact(QWidget *parent = nullptr);
+
     QString getName() const;
-    QString getNickname() const;
-    QString getPhoneNumber() const;
+    QString getPhone() const;
     QString getEmail() const;
-    
-    // Setters
-    void setName(const QString& name);
-    void setNickname(const QString& nickname);
-    void setPhoneNumber(const QString& phoneNumber);
-    void setEmail(const QString& email);
-    
-    // Utility
-    bool isValid() const;
+
+private:
+    QLineEdit* nameEdit;
+    QLineEdit* mailEdit;
+    QLineEdit* phoneEdit;
+    QPushButton* okButton;
+    QPushButton* cancelButton;
 };
 
 #endif
